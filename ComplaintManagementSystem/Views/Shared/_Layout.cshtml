@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Global Bank</title>
+
+    @*<link href="~/Content/Site.css" rel="stylesheet" type="text/css" />*@
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="~/Content/MyCSS.css" rel="stylesheet" />
+    <meta name="description" content="The description of my page" />
+</head>
+<body>
+		<div class="container">
+			<header>
+	            <div class="col-md-6">
+	                <img src="~/Images/Logo.jpg" /> <span style="font-weight:bold; color:#7c0d0d ; font-family:'Bell MT'; font-size:30px; margin-left: 10px;">Global Bank</span>
+				</div>
+			</header>
+		</div>
+    <div class="navbar navbar-inverse" style="border-radius:0;">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!--<a href="@Url.Action("Index","Home")" class="navbar-brand">Global Bank</a>-->
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+					<li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Contact Us", "ContactUs", "Home")</li>
+                    <li>@Html.ActionLink("FAQ's", "FAQ", "Home")</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @if (Session["Id"] == null )
+                    {
+                        <li><a href="@Url.Action("Signup","Home")"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                        <li><a href="@Url.Action("Login", "Login")"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="@Url.Action("Home", Session["LoginType"].ToString())"><span class="glyphicon glyphicon-th" aria-hidden="true"></span> Dashboard</a></li>
+                        <li><a href="@Url.Action("ChangePassword","Login")"><span class="glyphicon glyphicon-user"></span> Change Password</a></li>
+                        <li><a href="@Url.Action("Login", "Login")"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Log Out</a></li>
+
+                    }
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+    <footer>
+        <center>&copy; Copyrights 2017 Global Bank</center>
+	</footer>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

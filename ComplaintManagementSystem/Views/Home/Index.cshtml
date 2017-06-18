@@ -1,0 +1,127 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<style>
+    body {
+        
+    }
+
+    .box {
+        width: 300px;
+        height: 250px;
+        border: 1px solid #000;
+        border-radius: 2px;
+        float: left;
+        margin: 20px 30px;
+    }
+
+        .box img {
+            width: 300px;
+            height: 250px;
+        }
+
+        .box .overlay {
+            width: 300px;
+            height: 250px;
+            background: #fff;
+            margin: -250px 0px 0px 0px;
+            opacity: 0.3;
+        }
+
+        .box a {
+            padding: 5px 7px;
+            border: 1px solid #000;
+            text-decoration: none;
+            font-family: sans-serif;
+            font-size: 14px;
+            margin: -140px 0px 0px 15px;
+            display: inline-block;
+            opacity: 0;
+            transition: all 0.5s ease-in-out;
+            cursor: pointer; /* z-index: 10000; */
+            position: absolute;
+        }
+
+
+
+        .box .overlay:hover {
+            opacity: 0.1;
+            transition: all 0.5s ease-in-out;
+            width: 300px;
+            margin-left: 50px;
+            float: right;
+        }
+
+        .box:hover {
+            box-shadow: 0px 0px 10px #6A6A6A;
+            border: 1px solid #00DFDF;
+            transition: all 0.5s ease-in-out;
+        }
+
+            .box:hover a {
+                opacity: 1;
+                background: #FFFFFF;
+                color: #000000;
+                margin: -40px 0px 0px 15px;
+                border-radius: 1px;
+            }
+
+        .box a:hover {
+            border: 1px solid #00DFDF;
+            transition: all 0.5s ease-in-out;
+        }
+</style>
+
+<div class="row">
+
+	<div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="~/Images/Contact.jpg" alt="...">
+      <div class="caption">
+        <h3>@Html.ActionLink("Get in touch", "ContactUs", "Home")</h3>
+        <p>Instantly connect with us for any of our support. Leave an email to us or visit our location.</p>
+      </div>
+    </div>
+  </div>
+
+	<div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="~/Images/Track.jpg" alt="...">
+      <div class="caption">
+        <h3>@Html.ActionLink("Book Complaints","Login", "Login")</h3>
+        <p>An easy way to book your complaints. Login to book now!</p>
+      </div>
+    </div>
+  </div>
+
+	<div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="~/Images/FAQ.jpg" alt="...">
+      <div class="caption">
+        <h3>@Html.ActionLink("FAQs", "FAQ", "Home")</h3>
+        <p>We have compiled a list of frequently asked question that might guide you through our process.</p>
+      </div>
+    </div>
+  </div>
+
+	
+</div>
+<div class="col-md-12">
+	<h3>About</h3>
+	<hr>
+    <p>
+        <b> Global Bank</b> is a 100% Indian owned bank which started operations on June 30 of the year 1994.
+        It was originally conceived as a strictly corporate bank. However, face to the significant
+        growth of its first years, and with the vision of being a major player in the Indian
+        financial sector, in 1999, we acquired 100% of the capital stock of Citi Bank, thus becoming
+        the first banking group to start the bank mergers and acquisitions in India.
+	</p>	
+
+    <p>
+        This transaction tripled the assets of Global Bank, which went from 135 to 454 million;
+        and from 2 branches, we passed to have a network of 35 Branches and 9 Loan Centers,
+        covering the entire national territory. Counting from the year 1999 Global Bank growth
+        rates have been steadily higher than those of the industry.
+    </p>
+    <br><br>
+</div>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="44d22ca1d03f4c15899ca0b61e8539e9" Name="Diagram1">
+        <EntityTypeShape EntityType="dbComplaintManagementSystemModel.tblComplaint" Width="1.5" PointX="5.25" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbComplaintManagementSystemModel.tblCustomer" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbComplaintManagementSystemModel.tblProduct" Width="1.5" PointX="3" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbComplaintManagementSystemModel.tblProductAdmin" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbComplaintManagementSystemModel.tblSystemAdmin" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbComplaintManagementSystemModel.tblWorker" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <AssociationConnector Association="dbComplaintManagementSystemModel.FK__tblCompla__Custo__20C1E124" ManuallyRouted="false" />
+        <AssociationConnector Association="dbComplaintManagementSystemModel.FK__tblCompla__Produ__22AA2996" ManuallyRouted="false" />
+        <AssociationConnector Association="dbComplaintManagementSystemModel.FK__tblCompla__Worke__21B6055D" ManuallyRouted="false" />
+        <AssociationConnector Association="dbComplaintManagementSystemModel.FK__tblProduc__Produ__1A14E395" ManuallyRouted="false" />
+        <AssociationConnector Association="dbComplaintManagementSystemModel.FK__tblWorker__Produ__1DE57479" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

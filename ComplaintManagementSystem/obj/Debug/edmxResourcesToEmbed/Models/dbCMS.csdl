@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbComplaintManagementSystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblComplaint">
+    <Key>
+      <PropertyRef Name="ComplaintId" />
+    </Key>
+    <Property Name="ComplaintId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="WorkerId" Type="Int32" />
+    <Property Name="ProductId" Type="Int32" />
+    <Property Name="ComplaintText" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <Property Name="WorkerQuery" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerReply" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <Property Name="ComplaintStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ComplaintDate" Type="DateTime" Precision="3" />
+    <Property Name="Feedback" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblCustomer" Relationship="Self.FK__tblCompla__Custo__20C1E124" FromRole="tblComplaint" ToRole="tblCustomers" />
+    <NavigationProperty Name="tblProduct" Relationship="Self.FK__tblCompla__Produ__22AA2996" FromRole="tblComplaint" ToRole="tblProduct" />
+    <NavigationProperty Name="tblWorker" Relationship="Self.FK__tblCompla__Worke__21B6055D" FromRole="tblComplaint" ToRole="tblWorker" />
+  </EntityType>
+  <EntityType Name="tblCustomer">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AccountNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Branch" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Addr" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pssd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SecurityQuestion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="SecurityAnswer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblComplaints" Relationship="Self.FK__tblCompla__Custo__20C1E124" FromRole="tblCustomers" ToRole="tblComplaint" />
+  </EntityType>
+  <EntityType Name="tblProduct">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ProductAdminId" Type="Int32" />
+    <NavigationProperty Name="tblComplaints" Relationship="Self.FK__tblCompla__Produ__22AA2996" FromRole="tblProduct" ToRole="tblComplaint" />
+    <NavigationProperty Name="tblProductAdmin" Relationship="Self.FK__tblProduc__Produ__1A14E395" FromRole="tblProduct" ToRole="tblProductAdmin" />
+  </EntityType>
+  <EntityType Name="tblProductAdmin">
+    <Key>
+      <PropertyRef Name="ProductAdminId" />
+    </Key>
+    <Property Name="ProductAdminId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Pssd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblProducts" Relationship="Self.FK__tblProduc__Produ__1A14E395" FromRole="tblProductAdmin" ToRole="tblProduct" />
+    <NavigationProperty Name="tblWorkers" Relationship="Self.FK__tblWorker__Produ__1DE57479" FromRole="tblProductAdmin" ToRole="tblWorker" />
+  </EntityType>
+  <EntityType Name="tblSystemAdmin">
+    <Key>
+      <PropertyRef Name="SystemAdminId" />
+    </Key>
+    <Property Name="SystemAdminId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pssd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblWorker">
+    <Key>
+      <PropertyRef Name="WorkerId" />
+    </Key>
+    <Property Name="WorkerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Pssd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProductAdminId" Type="Int32" />
+    <Property Name="CurrentStatus" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="NoOfCases" Type="Int32" />
+    <NavigationProperty Name="tblComplaints" Relationship="Self.FK__tblCompla__Worke__21B6055D" FromRole="tblWorker" ToRole="tblComplaint" />
+    <NavigationProperty Name="tblProductAdmin" Relationship="Self.FK__tblWorker__Produ__1DE57479" FromRole="tblWorker" ToRole="tblProductAdmin" />
+  </EntityType>
+  <Association Name="FK__tblCompla__Custo__20C1E124">
+    <End Role="tblCustomers" Type="Self.tblCustomer" Multiplicity="0..1" />
+    <End Role="tblComplaint" Type="Self.tblComplaint" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCustomers">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="tblComplaint">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblCompla__Produ__22AA2996">
+    <End Role="tblProduct" Type="Self.tblProduct" Multiplicity="0..1" />
+    <End Role="tblComplaint" Type="Self.tblComplaint" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProduct">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="tblComplaint">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblCompla__Worke__21B6055D">
+    <End Role="tblWorker" Type="Self.tblWorker" Multiplicity="0..1" />
+    <End Role="tblComplaint" Type="Self.tblComplaint" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblWorker">
+        <PropertyRef Name="WorkerId" />
+      </Principal>
+      <Dependent Role="tblComplaint">
+        <PropertyRef Name="WorkerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblProduc__Produ__1A14E395">
+    <End Role="tblProductAdmin" Type="Self.tblProductAdmin" Multiplicity="0..1" />
+    <End Role="tblProduct" Type="Self.tblProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProductAdmin">
+        <PropertyRef Name="ProductAdminId" />
+      </Principal>
+      <Dependent Role="tblProduct">
+        <PropertyRef Name="ProductAdminId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblWorker__Produ__1DE57479">
+    <End Role="tblProductAdmin" Type="Self.tblProductAdmin" Multiplicity="0..1" />
+    <End Role="tblWorker" Type="Self.tblWorker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProductAdmin">
+        <PropertyRef Name="ProductAdminId" />
+      </Principal>
+      <Dependent Role="tblWorker">
+        <PropertyRef Name="ProductAdminId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dbCMSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblComplaints" EntityType="Self.tblComplaint" />
+    <EntitySet Name="tblCustomers" EntityType="Self.tblCustomer" />
+    <EntitySet Name="tblProducts" EntityType="Self.tblProduct" />
+    <EntitySet Name="tblProductAdmins" EntityType="Self.tblProductAdmin" />
+    <EntitySet Name="tblSystemAdmins" EntityType="Self.tblSystemAdmin" />
+    <EntitySet Name="tblWorkers" EntityType="Self.tblWorker" />
+    <AssociationSet Name="FK__tblCompla__Custo__20C1E124" Association="Self.FK__tblCompla__Custo__20C1E124">
+      <End Role="tblCustomers" EntitySet="tblCustomers" />
+      <End Role="tblComplaint" EntitySet="tblComplaints" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblCompla__Produ__22AA2996" Association="Self.FK__tblCompla__Produ__22AA2996">
+      <End Role="tblProduct" EntitySet="tblProducts" />
+      <End Role="tblComplaint" EntitySet="tblComplaints" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblCompla__Worke__21B6055D" Association="Self.FK__tblCompla__Worke__21B6055D">
+      <End Role="tblWorker" EntitySet="tblWorkers" />
+      <End Role="tblComplaint" EntitySet="tblComplaints" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProduc__Produ__1A14E395" Association="Self.FK__tblProduc__Produ__1A14E395">
+      <End Role="tblProductAdmin" EntitySet="tblProductAdmins" />
+      <End Role="tblProduct" EntitySet="tblProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblWorker__Produ__1DE57479" Association="Self.FK__tblWorker__Produ__1DE57479">
+      <End Role="tblProductAdmin" EntitySet="tblProductAdmins" />
+      <End Role="tblWorker" EntitySet="tblWorkers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

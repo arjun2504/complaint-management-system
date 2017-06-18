@@ -1,0 +1,49 @@
+﻿@model ComplaintManagementSystem.Models.CustomerView
+
+@{
+    ViewBag.Title = "Home";
+}
+<!--<style>
+    body {
+        background-color: #bdb9b9;
+    }
+</style>-->
+<h2 style="text-align:center">Welcome @Model.Customerdata.FirstName @Model.Customerdata.LastName</h2>
+<h4>Complaint Table</h4>
+<table class="table table-bordered">
+    <tr>
+        <th>Complaint Id</th>
+        <th>Complaint Text</th>
+        <th>Worker Query</th>
+        <th>Your Reply</th>
+        <th>Complaint Status</th>
+        <th>Complaint Date</th>
+        <th style="text-align:center">Action</th>
+    </tr>
+    @foreach (var item in Model.Complaintdata)
+    {
+        <tr>
+            <td>@item.ComplaintId</td>
+            <td>@item.ComplaintText</td>
+            <td>@item.WorkerQuery</td>
+            <td>@item.CustomerReply</td>
+            <td>@item.ComplaintStatus</td>
+            <td>@item.ComplaintDate</td>
+            @if (@item.CustomerReply == "Awaiting Reply")
+            {
+                <td>@Html.ActionLink("Reply", "Reply", "Customer", new { complaintid = @item.ComplaintId }, null)</td>
+            }
+            else if (@item.ComplaintStatus == "Resolved")
+            {
+                <td>@Html.ActionLink("Feedback", "Feedback", "Customer", new { complaintid = @item.ComplaintId }, null)</td>
+            }
+            else
+            {
+                <td></td>
+            }
+        </tr>
+    }
+</table>
+<div>
+    @Html.ActionLink("New Complaint","NewComplaint")
+</div>

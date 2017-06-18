@@ -1,0 +1,135 @@
+﻿@model ComplaintManagementSystem.Models.SystemAdminView
+
+@{
+
+    ViewBag.Title = "Home";    
+}
+<style>
+    body{
+        background-color:#bdb9b9;
+    }
+</style>
+<h2 style="text-align:center">Welcome @Model.systemadmindata.FirstName @Model.systemadmindata.LastName</h2>
+<br />
+<br />
+
+<h4>Complaints</h4>
+<table class="table table-inverse">
+    <thead>
+        <tr>
+            <th>Complaint Id</th>
+            <th>Customer Id</th>
+            <th>Worker Id</th>
+            <th>Product Id</th>
+            <th>Complaint Text</th>
+            <th>Complaint Date</th>
+            <th>Complaint Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model.complaintdata)
+    {
+        <tr>
+            <td>@item.ComplaintId</td>
+            <td>@item.CustomerId</td>
+            <td>@item.WorkerId</td>
+            <td>@item.ProductId</td>
+            <td>@item.ComplaintText</td>
+            <td>@item.ComplaintDate</td>
+            <td>@item.ComplaintStatus</td>
+            @if (item.ComplaintStatus == "Closed")
+            {
+                <td>@Html.ActionLink("Delete", "Delete", "SystemAdmin", new { complaintid = @item.ComplaintId }, null)</td>
+            }
+            else
+            {
+                <td></td>
+            }
+        </tr>
+    }
+</table>
+
+<br />
+<br />
+<h4>Customers</h4>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Customer Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Account Number</th>
+            <th>Branch</th>
+            <th>Address</th>
+            <th>Email</th>
+            <th>Phone</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model.customerdata)
+    {
+        <tr>
+            <td>@item.CustomerId</td>
+            <td>@item.FirstName</td>
+            <td>@item.LastName</td>
+            <td>@item.AccountNumber</td>
+            <td>@item.Branch</td>
+            <td>@item.Addr</td>
+            <td><a href="mailto:@item.Email">@item.Email</a></td>
+            <td>@item.Phone</td>
+        </tr>
+    }
+</table>
+
+
+
+<br />
+<br />
+<h4>Workers</h4>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Worker Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Product Admin Id</th>
+            <th>Email</th>
+            <th>Current Status</th>
+            <th>Number of Cases</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model.workerdata)
+    {
+        <tr>
+            <td>@item.WorkerId</td>
+            <td>@item.FirstName</td>
+            <td>@item.LastName</td>
+            <td>@item.ProductAdminId</td>
+            <td><a href="mailto:@item.Email">@item.Email</a></td>
+            <td>@item.CurrentStatus</td>
+            <td>@item.NoOfCases</td>
+        </tr>
+    }
+</table>
+
+<br />
+<br />
+<h4>Product Administrators</h4>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Product Admin Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+        @foreach (var item in Model.productadmindata)
+        {
+            <tr>
+                <td>@item.ProductAdminId</td>
+                <td>@item.FirstName</td>
+                <td>@item.LastName</td>
+                <td><a href="mailto:@item.Email">@item.Email</a></td>
+            </tr>
+        }
+</table>

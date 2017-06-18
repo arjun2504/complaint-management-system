@@ -1,0 +1,45 @@
+﻿@model ComplaintManagementSystem.Models.WorkerView
+@{
+    ViewBag.Title = "Home";
+}
+<style>
+    body {
+        background-color: #bdb9b9;
+    }
+</style>
+<h2>Welcome @Model.Workerdata.FirstName @Model.Workerdata.LastName</h2>
+
+<h4>Complaints Table</h4>
+<table class="table table-bordered">
+    <tr>
+        <th>Complaint Id</th>
+        <th>Complaint Text</th>
+        <th>Your Query</th>
+        <th>Customer Reply</th>
+        <th>Complaint Status</th>
+        <th>Complaint Date</th>
+        <th colspan="2" style="text-align:center">Action</th>
+    </tr>
+    @foreach (var item in Model.Complaintdata)
+    {
+        <tr>
+            <td>@item.ComplaintId</td>
+            <td>@item.ComplaintText</td>
+            <td>@item.WorkerQuery</td>
+            <td>@item.CustomerReply</td>
+            <td>@item.ComplaintStatus</td>
+            <td>@item.ComplaintDate</td>
+            @if (@item.ComplaintStatus == "Assigned" && @item.CustomerReply != "Awaiting Reply")
+            {
+                <td>@Html.ActionLink("Ask Query", "AskQuery", "Worker", new { complaintid = @item.ComplaintId }, null)</td>
+                <td>@Html.ActionLink("Complaint Resolved", "Resolved", "Worker", new { complaintid = @item.ComplaintId }, null)</td>
+            }
+            else
+            {
+                <td colspan="2"></td>
+            }
+
+        </tr>
+    }
+</table>
+

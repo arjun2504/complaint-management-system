@@ -1,0 +1,29 @@
+﻿<Properties StartupConfiguration="{422F85FD-A487-4851-ACB2-E38E1409EDF4}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ComplaintManagementSystem/Views/Home/ForgotPassword.cshtml">
+    <Files>
+      <File FileName="ComplaintManagementSystem/Controllers/SystemAdminController.cs" Line="70" Column="1" />
+      <File FileName="ComplaintManagementSystem/Views/Shared/_Layout.cshtml" Line="67" Column="60" />
+      <File FileName="ComplaintManagementSystem/Views/Home/Index.cshtml" Line="126" Column="13" />
+      <File FileName="ComplaintManagementSystem/Content/MyCSS.css" Line="3" Column="30" />
+      <File FileName="ComplaintManagementSystem/Views/Home/ContactUs.cshtml" Line="38" Column="17" />
+      <File FileName="ComplaintManagementSystem/Views/Home/FAQ.cshtml" Line="36" Column="1" />
+      <File FileName="ComplaintManagementSystem/Views/Home/Signup.cshtml" Line="73" Column="19" />
+      <File FileName="ComplaintManagementSystem/Views/Login/ChangePassword.cshtml" Line="7" Column="5" />
+      <File FileName="ComplaintManagementSystem/Views/Login/Login.cshtml" Line="53" Column="41" />
+      <File FileName="ComplaintManagementSystem/Views/Customer/Feedback.cshtml" Line="12" Column="4" />
+      <File FileName="ComplaintManagementSystem/Views/Customer/Home.cshtml" Line="6" Column="1" />
+      <File FileName="ComplaintManagementSystem/Views/Customer/NewComplaint.cshtml" Line="6" Column="1" />
+      <File FileName="ComplaintManagementSystem/Views/Customer/Reply.cshtml" Line="7" Column="1" />
+      <File FileName="ComplaintManagementSystem/Views/ProductAdmin/Assign.cshtml" Line="6" Column="1" />
+      <File FileName="ComplaintManagementSystem/Views/ProductAdmin/Home.cshtml" Line="6" Column="1" />
+      <File FileName="ComplaintManagementSystem/Views/Home/ForgotPassword.cshtml" Line="6" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.ComplaintManagementSystem PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>

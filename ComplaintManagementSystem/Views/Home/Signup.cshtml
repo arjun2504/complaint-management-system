@@ -1,0 +1,88 @@
+﻿@model ComplaintManagementSystem.Models.tblCustomer
+
+@{
+    ViewBag.Title = "Sign Up";
+}
+<style>
+    .form-signup-gap {
+        margin-bottom: 20px;
+	}
+</style>
+@using (Html.BeginForm())
+{
+            @Html.AntiForgeryToken()
+            <h1>Sign Up</h1>
+            <hr>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.ValidationMessage("Error")
+            <div class="col-md-6 form-signup-gap">
+	            @Html.Label("First Name")
+                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+	            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+	        </div>
+            <div class="col-md-6 form-signup-gap">
+                @Html.Label("Last Name")
+                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-6 form-signup-gap">
+	            @Html.Label("Branch")
+	            @Html.EditorFor(model => model.Branch, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Branch, "", new { @class = "text-danger" })
+	        </div>
+            <div class="col-md-6 form-signup-gap">
+	            @Html.Label("Address")
+	            @Html.EditorFor(model => model.Addr, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Addr, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-6 form-signup-gap">
+                @Html.Label("Contact Number")
+	            @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+	        </div>
+            <div class="col-md-6 form-signup-gap">
+                @Html.Label("Account Number")
+                @Html.EditorFor(model => model.AccountNumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.AccountNumber, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-6 form-signup-gap">
+                @Html.Label("Email")
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+	            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-6 form-signup-gap">
+                @Html.Label("Password")
+                @Html.EditorFor(model => model.Pssd, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Pssd, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-6 form-signup-gap">
+                @Html.Label("Confirm Password")
+                @Html.EditorFor(model => model.ConPssd, new { htmlAttributes = new { @class = "form-control" } })
+	            @Html.ValidationMessageFor(model => model.ConPssd, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-6 form-signup-gap">
+                @Html.Label("Security Question")
+                @{
+	                List<SelectListItem> listItems = new List<SelectListItem>();
+	                listItems.Add(new SelectListItem { Text = "What is your mother's maiden name", Value = "What is your mother's maiden name", Selected = true });
+	                listItems.Add(new SelectListItem { Text = "What is the name of your favourite teacher", Value = "What is the name of your favourite teacher", });
+	                listItems.Add(new SelectListItem { Text = "What was the name of your first friend", Value = "What was the name of your first friend" });
+	                listItems.Add(new SelectListItem { Text = "What was the name of your first pet", Value = "What was the name of your first pet" });
+                }
+                @Html.DropDownListFor(model => model.SecurityQuestion, listItems, new { @class = "form-control" })
+            </div>
+            <div class="col-md-6 form-signup-gap">
+                @Html.Label("Security Answer:")
+                @Html.EditorFor(model => model.SecurityAnswer, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SecurityAnswer, "", new { @class = "text-danger" })
+            </div>
+            <br/>
+            <center>
+                <input type="submit" value="Sign Up" class="btn btn-success" style="width: 100%"/>
+	        </center>
+
+}
+
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>​

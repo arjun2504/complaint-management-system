@@ -1,0 +1,58 @@
+﻿@model IEnumerable<ComplaintManagementSystem.Models.tblWorker>
+@{
+    ViewBag.Title = "Assign";
+}
+
+<!--<style>
+    body {
+        background-color: #bdb9b9;
+    }
+</style>-->
+
+<h2>Assign the Complaint</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Worker Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>No of Cases</th>
+        <th>Current Status</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.WorkerId</td>
+            <td>@item.FirstName</td>
+            <td>@item.LastName</td>
+            <td>@item.NoOfCases</td>
+            <td>@item.CurrentStatus</td>
+        </tr>
+    }
+</table>
+@using (Html.BeginForm())
+{
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.Label("Enter Worker Id:", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-4">
+            <input type="text" name="WorkerId" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-4">
+                <input type="submit" onclick="" value="Assign" class="btn btn-default" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-4" style="color:red">
+                @Html.ValidationMessage("Error")
+            </div>
+        </div>
+
+    </div>
+</div>
+}

@@ -1,0 +1,51 @@
+﻿@model ComplaintManagementSystem.Models.ProductAdminView
+
+@{
+    ViewBag.Title = "Home";
+}
+<!--<style>
+    body {
+        background-color: #bdb9b9;
+    }
+</style>-->
+<h2 style="text-align:center">Welcome @Model.ProductAdmindata.FirstName @Model.ProductAdmindata.LastName</h2>
+
+<h4>Complaints Table</h4>
+<table class="table table-bordered">
+    <tr>
+        <th>Complaint Id</th>
+        <th>Complaint Text</th>
+        <th>Complaint Date</th>
+        <th>Complaint Status</th>
+        <th>Feedback</th>
+        <th colspan="3" style="text-align:center">Action</th>
+
+    </tr>
+    @foreach (var item in Model.Complaintdata)
+    {
+        <tr>
+            <td>@item.ComplaintId</td>
+            <td>@item.ComplaintText</td>
+            <td>@item.ComplaintDate</td>
+            <td>@item.ComplaintStatus</td>
+            <td>@item.Feedback</td>
+            @if (@item.ComplaintStatus == "Not Assigned")
+            {
+                <td colspan="3">@Html.ActionLink("Assign", "Assign", "ProductAdmin", new { complaintid = @item.ComplaintId }, null)</td>
+            }
+            else if (@item.ComplaintStatus == "Feedback Provided")
+            {
+                <td>@Html.ActionLink("Close Complaint", "Close", "ProductAdmin", new { complaintid = @item.ComplaintId }, null)</td>
+                <td>@Html.ActionLink("Re-Assign", "Assign", "ProductAdmin", new { complaintid = @item.ComplaintId }, null)</td>
+            }
+            else
+            {
+                <td colspan="3"></td>
+            }
+           
+        </tr>
+    }
+</table>
+
+
+

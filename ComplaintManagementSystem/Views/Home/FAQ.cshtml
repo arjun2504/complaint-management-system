@@ -1,0 +1,137 @@
+﻿@{
+    ViewBag.Title = "FAQ";
+}
+@{
+    ViewBag.Title = "FAQ";
+}
+<style>
+    button.accordion {
+        background-color: #eee;
+        color: #444;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+        transition: 0.4s;
+    }
+
+        button.accordion.active, button.accordion:hover {
+            background-color: #ddd;
+        }
+
+        button.accordion:after {
+            content: '\002B';
+            color: #777;
+            font-weight: bold;
+            float: right;
+            margin-left: 5px;
+        }
+
+        button.accordion.active:after {
+            content: "\2212";
+        }
+
+
+	.panel:nth-child(even) {
+        padding: 0 18px;
+        background-color: white;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+	}
+    .panel:nth-child(odd) {
+        padding: 0 18px;
+        background-color: #;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+    }
+</style>
+<h2 style="text-align:center">FAQs (Frequently Asked Questions)</h2><br />
+<div class="container" style="width:80%">
+    <button class="accordion"><b>1. Where can I change my password?</b></button>
+    <div class="panel">
+        <p>
+            Login to your account and select change password option.
+        </p>
+    </div>
+
+    <button class="accordion"><b>2. Can I transfer money through this website?</b></button>
+    <div class="panel">
+        <p>
+            No. This is complaint registration portal. Money transfer is not possible.
+        </p>
+    </div>
+
+    <button class="accordion"><b>3. Where can I find the status of my complaint?</b></button>
+    <div class="panel">
+        <p>
+            When you login to your account, you will be able to see status of all the complaints.
+        </p>
+    </div>
+
+    <button class="accordion"><b>4. I do not get the alerts. What should I do?</b></button>
+    <div class="panel">
+        <p>
+            If you do not get the SMS Alerts, it may be either your mobile is not registered
+            or it has not been updated after change in mobile number.
+            Immediately lodge a complaint with us regarding updation of your mobile number.
+        </p>
+    </div>
+
+    <button class="accordion"><b>5. I cannot login to my account.</b></button>
+    <div class="panel">
+        <p>
+            Please make sure you have selected the correct login type and entered correct password while logging in. To keep your account secured, change password regularly.
+        </p>
+    </div>
+
+    <button class="accordion"><b>6. How do I lodge a complaint?</b></button>
+    <div class="panel">
+        <p>Login to your account and enter the details and the type of issue. A complaint will be registered under your account.</p>
+    </div>
+
+    <button class="accordion"><b>7. Can I delete my complaint?</b></button>
+    <div class="panel">
+        <p>
+            No. You can view the status of your complaints but you cannot delete them.
+        </p>
+    </div>
+
+    <button class="accordion"><b>8. Can I register a complaint offline?</b></button>
+    <div class="panel">
+        <p>No. All the complaints related to your account have to be registered on the complaint portal only.</p>
+    </div>
+
+    <button class="accordion"><b>9. Can I create a bank account using this website?</b></button>
+    <div class="panel">
+        <p>No. This website is only for registering complaints related to existing bank account.</p>
+    </div>
+
+    <button class="accordion"><b>10. How can I contact the worker incharge?</b></button>
+    <div class="panel">
+        <p>
+            Login to your account and communicate with the worker assigned using text box provided.
+        </p>
+    </div>
+
+</div>
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].onclick = function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        }
+    }
+</script>​
